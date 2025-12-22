@@ -7,7 +7,7 @@ const Catalog = () => {
     useEffect( () => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/api/product');
+                const response = await axios.get('http://127.0.0.1:8000/product');
                 setProducts(response.data);
             } catch (error) {
                 console.log('error', error);
@@ -21,7 +21,7 @@ const Catalog = () => {
         <div>
             <h1>Товары</h1>
                 {products.map(product => (
-                    <Link to={`/product/${product.id}`}>
+                    <Link to={`/catalog/product/${product.id}`}>
                         <span><strong>{product.name}</strong></span><br />
                         <span>Старая Цена: <strike>{product.out_price}</strike></span><br />
                         <span>Новая Цена: {product.sale_price}</span><br />

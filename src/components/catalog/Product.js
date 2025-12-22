@@ -9,7 +9,7 @@ const Product = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`http://127.0.0.1:8000/api/product/${id}`);
+                const response = await axios.get(`http://127.0.0.1:8000/product/${id}`);
                 setProduct(response.data);
             } catch (error) {
                 console.error('error:', error);
@@ -29,7 +29,7 @@ const Product = () => {
             <span>Описание: {product.description}</span><br />
             <img src={product.image} alt="Картинка" width={400}/>
             <hr/>          
-            <Link to={`/`}>Назад</Link>   
+            <Link to={`/catalog`}>Назад</Link>   
         </div>
     );
 
