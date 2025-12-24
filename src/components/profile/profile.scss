@@ -1,0 +1,487 @@
+$dark-text: black;
+$bg-color: #F5F6E7;
+$border-color: #e0e0e0;
+$accent-red: #e53935;
+$button-bg: #2c3e50;
+
+.profile-container {
+    background-color: $bg-color;
+    box-sizing: border-box;
+}
+
+.banner-section {
+    position: relative;
+    width: 100%;
+    background-color: #e0e0e0;
+    overflow: hidden;
+    
+    .banner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .banner-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+    }
+    
+    .edit-banner-btn {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        background-color: rgba($button-bg, 0.9);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        
+        &:hover {
+            background-color: rgba($button-bg, 1);
+        }
+    }
+}
+
+.avatar-section {
+    display: flex;
+    align-items: center;
+    
+    .avatar-wrapper {
+        position: relative;
+    }
+    
+    .avatar-image {
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    
+    .avatar-placeholder {
+        border-radius: 50%;
+        background-color: #ddd;
+        border: 4px solid white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    
+    .edit-avatar-btn {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        
+        &:hover {
+            background-color: #f0f0f0;
+        }
+    }
+    
+    .nickname {
+        color: $dark-text;
+    }
+}
+
+.bio-section {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    
+    h3 {
+        color: $dark-text;
+    }
+    
+    .bio-textarea {
+        width: 100%;
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        resize: vertical;
+        box-sizing: border-box;
+    }
+    
+    .bio-text {
+        color: #555;
+        margin: 0;
+        white-space: pre-wrap;
+    }
+}
+
+.controls-section {
+    text-align: center;
+    
+    .edit-btn {
+        background-color: $button-bg;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        padding: 0.5rem;
+        
+        &:hover {
+            background-color: darken($button-bg, 10%);
+        }
+    }
+    
+    .edit-controls {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        
+        .apply-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            
+            &:hover {
+                background-color: #3d8b40;
+            }
+        }
+        
+        .cancel-btn {
+            background-color: $accent-red;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            
+            &:hover {
+                background-color: darken($accent-red, 10%);
+            }
+        }
+    }
+}
+
+.files-info {
+    background-color: #e8f5e9;
+    border-radius: 6px;
+    border-left: 4px solid #4CAF50;
+    padding: 1rem;
+    
+    p {
+        color: #2e7d32;
+    }
+}
+
+// 1. 375px (мобильные)
+@media (max-width: 375px) {
+    .profile-container {
+        padding: 1rem;
+    }
+    
+    .banner-section {
+        height: 120px;
+        margin-bottom: 50px;
+        border-radius: 4px;
+        
+        .edit-banner-btn {
+            padding: 6px 10px;
+            font-size: 12px;
+            bottom: 10px;
+            right: 10px;
+        }
+    }
+    
+    .avatar-section {
+        flex-direction: column;
+        text-align: center;
+        margin-top: -40px;
+        
+        .avatar-wrapper {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .avatar-image,
+        .avatar-placeholder {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .edit-avatar-btn {
+            width: 24px;
+            height: 24px;
+            font-size: 12px;
+        }
+        
+        .nickname {
+            margin-left: 0;
+            margin-top: 10px;
+            font-size: 20px;
+        }
+    }
+    
+    .bio-section {
+        padding: 15px;
+        margin-top: 20px;
+        
+        h3 {
+            font-size: 16px;
+        }
+        
+        .bio-textarea {
+            font-size: 14px;
+            padding: 8px;
+        }
+        
+        .bio-text {
+            font-size: 14px;
+        }
+    }
+    
+    .controls-section {
+        .edit-btn,
+        .apply-btn,
+        .cancel-btn {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+    }
+    
+    .files-info {
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+// 2. 960px (планшеты)
+@media (min-width: 376px) and (max-width: 960px) {
+    .profile-container {
+        padding: 1.5rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .banner-section {
+        height: 160px;
+        margin-bottom: 70px;
+        border-radius: 6px;
+    }
+    
+    .avatar-section {
+        padding-left: 20px;
+        margin-top: -60px;
+        
+        .avatar-wrapper {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .avatar-image,
+        .avatar-placeholder {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .edit-avatar-btn {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .nickname {
+            margin-left: 15px;
+            font-size: 24px;
+        }
+    }
+    
+    .bio-section {
+        padding: 20px;
+        margin-top: 25px;
+    }
+    
+    .controls-section {
+        .edit-btn,
+        .apply-btn,
+        .cancel-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+        }
+    }
+}
+
+// 3. 1200px (ноутбуки)
+@media (min-width: 961px) and (max-width: 1200px) {
+    .profile-container {
+        padding: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    .banner-section {
+        height: 180px;
+        margin-bottom: 80px;
+        border-radius: 8px;
+    }
+    
+    .avatar-section {
+        padding-left: 30px;
+        margin-top: -70px;
+        
+        .avatar-wrapper {
+            width: 120px;
+            height: 120px;
+        }
+        
+        .avatar-image,
+        .avatar-placeholder {
+            width: 120px;
+            height: 120px;
+        }
+        
+        .edit-avatar-btn {
+            width: 36px;
+            height: 36px;
+        }
+        
+        .nickname {
+            margin-left: 20px;
+            font-size: 28px;
+        }
+    }
+    
+    .bio-section {
+        padding: 25px;
+        margin-top: 30px;
+    }
+}
+
+// 4. 1920px (десктоп)
+@media (min-width: 1201px) and (max-width: 1920px) {
+    .profile-container {
+        padding: 3rem;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .banner-section {
+        height: 200px;
+        margin-bottom: 90px;
+        border-radius: 10px;
+    }
+    
+    .avatar-section {
+        padding-left: 40px;
+        margin-top: -80px;
+        
+        .avatar-wrapper {
+            width: 140px;
+            height: 140px;
+        }
+        
+        .avatar-image,
+        .avatar-placeholder {
+            width: 140px;
+            height: 140px;
+            border-width: 5px;
+        }
+        
+        .edit-avatar-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+        }
+        
+        .nickname {
+            margin-left: 30px;
+            font-size: 32px;
+        }
+    }
+    
+    .bio-section {
+        padding: 30px;
+        margin-top: 35px;
+        
+        .bio-textarea {
+            font-size: 18px;
+        }
+        
+        .bio-text {
+            font-size: 18px;
+        }
+    }
+}
+
+// 5. 2560px (4K и больше)
+@media (min-width: 1921px) {
+    .profile-container {
+        padding: 4rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .banner-section {
+        height: 250px;
+        margin-bottom: 110px;
+        border-radius: 12px;
+    }
+    
+    .avatar-section {
+        padding-left: 50px;
+        margin-top: -100px;
+        
+        .avatar-wrapper {
+            width: 160px;
+            height: 160px;
+        }
+        
+        .avatar-image,
+        .avatar-placeholder {
+            width: 160px;
+            height: 160px;
+            border-width: 6px;
+        }
+        
+        .edit-avatar-btn {
+            width: 45px;
+            height: 45px;
+            font-size: 20px;
+        }
+        
+        .nickname {
+            margin-left: 40px;
+            font-size: 36px;
+        }
+    }
+    
+    .bio-section {
+        padding: 40px;
+        margin-top: 45px;
+        
+        h3 {
+            font-size: 24px;
+        }
+        
+        .bio-textarea {
+            font-size: 20px;
+            padding: 15px;
+        }
+        
+        .bio-text {
+            font-size: 20px;
+            line-height: 1.8;
+        }
+    }
+    
+    .controls-section {
+        .edit-btn,
+        .apply-btn,
+        .cancel-btn {
+            padding: 15px 30px;
+            font-size: 18px;
+        }
+    }
+}
