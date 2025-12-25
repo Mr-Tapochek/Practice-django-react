@@ -10,6 +10,7 @@ const Header = () => {
             </section>
             <section className="links">
                 <Link to='catalog/' className="header-link">Каталог</Link>
+                <Link to='about/' className="header-link">О нас</Link>
                 <Link to='profile/' className="header-link">Профиль</Link>
             </section>
         </header>

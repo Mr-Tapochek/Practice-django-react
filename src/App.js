@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -9,6 +8,7 @@ import RegistrationForm from './components/register/Register';
 import LoginForm from './components/login/Login';
 import Profile from './components/profile/Profile';
 import Header from './components/header/Header';
+import About from './components/about/about';
 function App() {
   return (
       <Router>
@@ -26,6 +26,7 @@ function AppContent() {
     <>
       {shouldShowHeader && <Header />}
       <Routes>
+        <Route path='/about' element={<About />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/register' element={<RegistrationForm />} />
         <Route path='/' element={<LoginForm />} />

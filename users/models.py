@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
-import re
 
 def validate_cyrillic(value):
     if not all(char in 'абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ' for char in value):
@@ -15,7 +14,22 @@ class CustomUser(AbstractUser):
     patronymic = models.CharField(max_length=150, blank=True, null=True, verbose_name='Отчество', validators=[validate_cyrillic])
     gender = models.CharField(max_length=10, choices=(('male', 'Мужской'), ('female', 'Женский')), default=None, verbose_name='Пол')
     email = models.EmailField(unique=True, verbose_name='Email')
-    phone_number = models.CharField(max_length=15, verbose_name='Телефон')
+    phone_number = models.CharField(max_length=25, verbose_name='Телефон')
     
     def __str__(self):
         return self.username
+    
+class Profile(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    avatar = models.ImageField(upload_to='avatars', null=True, verbose_name='Аватарка')
+    banner = models.ImageField(upload_to='banners', null=True, verbose_name='Баннер')
+    bio = models.TextField(null=True, verbose_name='О себе') 
+
+    def __str__(self):
+        return self.user.username
+
+    class Meta:
+        db_table = 'profile'
+        verbose_name = 'Профиль'
+        verbose_name_plural = 'Профили'  
+        

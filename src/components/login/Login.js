@@ -26,7 +26,6 @@ const LoginForm = () => {
                 localStorage.setItem('access_token', response.data.tokens.access);
                 localStorage.setItem('refresh_token', response.data.tokens.refresh);
 
-                // Устанавливаем токен по умолчанию для всех запросов
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.tokens.access}`
             };
 

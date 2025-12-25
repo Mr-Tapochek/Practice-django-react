@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import CustomUser
+from .models import CustomUser, Profile
+from rest_framework_simplejwt.tokens import RefreshToken
 
 class RegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
@@ -20,4 +21,8 @@ class RegistrationSerializer(serializers.ModelSerializer):
             phone_number=validated_data['phone_number'],
             password=validated_data['password']
         )
+
+        Profile.objects.create(user=user)
+
         return user
+   

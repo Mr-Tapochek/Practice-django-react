@@ -18,7 +18,7 @@ class Product(models.Model):
     description = models.TextField(verbose_name='Описание')
     out_price = models.DecimalField(default=0.00, max_digits=10, decimal_places=2, verbose_name='Старая цена')
     sale_price = models.DecimalField(default=0.00, max_digits=10, decimal_places=2, verbose_name='Новая цена')
-    image = models.URLField(verbose_name='Изображение', null=True)
+    image = models.ImageField(upload_to='product_image', verbose_name='Изображение', null=True)
     category = models.ForeignKey(Category, verbose_name='Категория', on_delete=models.CASCADE)
 
     def __str__(self):
